@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead & Injured</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="main-content">
+        <h1>Dead & Injured</h1>
+        
+        <div class="game-container">
+            <div id="turnIndicator" class="turn-indicator">Your turn to guess</div>
+            
+            <div class="game-section" id="playerGuessSection">
+                <h2>Guess Computer's Number</h2>
+                <div class="input-area">
+                    <input type="text" id="playerGuessInput" maxlength="4" placeholder="Enter 4 digits">
+                    <button id="submitPlayerGuess">Submit Guess</button>
+                </div>
+                <div id="playerMessage" class="message" style="display: none;"></div>
+                <div class="guesses" id="playerGuessesContainer">
+                    <!-- Player's guesses will appear here -->
+                </div>
+            </div>
+            
+            <div class="game-section" id="computerGuessSection" style="display: none;">
+                <h2>Computer Guessing Your Number</h2>
+                <div class="input-area">
+                    <span id="computerGuessDisplay" class="guess-value" style="font-size: 24px;"></span>
+                    <div class="feedback">
+                        <span class="dead">Dead: <span id="computerDeadCount">0</span></span>
+                        <span class="injured">Injured: <span id="computerInjuredCount">0</span></span>
+                    </div>
+                </div>
+                <div class="input-area">
+                    <button id="submitFeedback">Submit Feedback</button>
+                </div>
+                <div id="computerMessage" class="message" style="display: none;"></div>
+                <div class="guesses" id="computerGuessesContainer">
+                    <!-- Computer's guesses will appear here -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>How to play:</h3>
+            <ol>
+                <li><strong>First round:</strong> You try to guess the computer's 4-digit number</li>
+                <li><strong>Second round:</strong> The computer tries to guess your number</li>
+                <li>Take turns until one player guesses correctly</li>
+            </ol>
+            <ul>
+                <li><strong>Dead</strong> (red): Correct digit in the correct position</li>
+                <li><strong>Injured</strong> (blue): Correct digit but in the wrong position</li>
+            </ul>
+            <p>All digits in the secret numbers must be unique.</p>
+        </div>
+    </div>
+    
+    <div class="scoreboard">
+        <h2>Scoreboard</h2>
+        <table id="scoreTable">
+            <thead>
+                <tr>
+                    <th>Round</th>
+                    <th>You</th>
+                    <th>Computer</th>
+                </tr>
+            </thead>
+            <tbody id="scoreTableBody">
+                <!-- Scores will appear here -->
+            </tbody>
+        </table>
+        <div style="margin-top: 20px;">
+            <button id="newGameBtn" style="width: 100%;">New Game</button>
+        </div>
+    </div>
+</body>
+</html>
